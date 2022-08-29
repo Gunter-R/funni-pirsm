@@ -1,22 +1,39 @@
 :root {
-    --side: 200px;
-    --hight: 86.6px;
+    --side: 50vmin;
+    --hight: 21.65vmin;
 }
+
+/*@media(max-width: 600px) {
+    --side: 50vmin;
+    --hight: 21.65vmin;
+}*/
 
 
 *, *:before, *:after {
     transform-style: preserve-3d;
 }
 
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 	transform: translateZ(1000px);
 }
 
 
+.slider-container {
+    position: fixed;
+    bottom: 0;
+    width: 80vw;
+    font-size: 2rem;
+}
 
 .slider-container > *{
     display: flex;
@@ -25,15 +42,20 @@ body {
     margin: 5px;
 }
 
+.slider {
+    flex: 1;
+    height: 100px;
+}
+
 label {
     display: inline-block;
 }
 
 .scene {
-    margin: 50px 0 50px;
+    margin: calc(var(--side)/4) 0 0;
     width: var(--side);
     height: var(--side);
-    perspective: 500px;
+    perspective: calc(var(--side)*2);
 }
 
 .prism {
