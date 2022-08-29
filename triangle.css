@@ -78,5 +78,5 @@ label {
     transform: rotateX(90deg) translateY(calc(0px - var(--hight))) translateZ(var(--hight));
 }
 .face:nth-of-type(5) {
-    transform: rotateX(90deg) translateY(calc(0px - var(--hight))) translateZ(calc(-200px + var(--hight) - 2px));
+    transform: rotateX(90deg) translateY(calc(0px - var(--hight))) translateZ(calc(var(--hight) - var(--side) - 2px));
 }
