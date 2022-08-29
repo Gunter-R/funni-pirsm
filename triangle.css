@@ -1,3 +1,9 @@
+:root {
+    --side: 200px;
+    --hight: 86.6px;
+}
+
+
 *, *:before, *:after {
     transform-style: preserve-3d;
 }
@@ -7,7 +13,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-	transform: translateZ(400px);
+	transform: translateZ(1000px);
 }
 
 
@@ -25,15 +31,15 @@ label {
 
 .scene {
     margin: 50px 0 50px;
-    width: 200px;
-    height: 200px;
+    width: var(--side);
+    height: var(--side);
     perspective: 500px;
 }
 
 .prism {
     width: 100%;
     height: 100%;
-    transform-origin: 100px 100px -86.6px;
+    transform-origin: calc(var(--side)/2) calc(var(--side)/2) calc(0px - var(--hight));
     transition: transform 0.5s;
 }
 
@@ -48,13 +54,14 @@ label {
     height: 0;
     border-style: solid;
     border-color: transparent transparent rgba(0, 255, 0, 0.3) transparent;
-    border-width: 0 100px 173.2px;
+    border-width: 0 calc(var(--side)/2) calc(var(--hight)*2);
+
 }
 
 .rectangle {
     border: solid 1px black;
-    width: 200px;
-    height: 200px;
+    width: var(--side);
+    height: var(--side);
     background-color: rgba(255, 0, 0, 0.3);
 }
 
@@ -62,15 +69,14 @@ label {
     transform: rotateY(0deg);
 }
 .face:nth-of-type(2) {
-    transform: rotateY(120deg) translateZ(86.6px) translateX(50px);
+    transform: rotateY(120deg) translateZ(var(--hight)) translateX(calc(var(--side)/4));
 }
 .face:nth-of-type(3) {
-    transform: rotateY(240deg) translateZ(86.6px) translateX(-50px);
+    transform: rotateY(240deg) translateZ(var(--hight)) translateX(calc(0px - var(--side)/4));
 }
 .face:nth-of-type(4) {
-    transform: rotateX(90deg) translateZ(85px) translateY(-86.6px);
+    transform: rotateX(90deg) translateY(calc(0px - var(--hight))) translateZ(var(--hight));
 }
 .face:nth-of-type(5) {
-    transform: rotateX(90deg) translateZ(-115px) translateY(-86.6px);
+    transform: rotateX(90deg) translateY(calc(0px - var(--hight))) translateZ(calc(-200px + var(--hight) - 2px));
 }
-
