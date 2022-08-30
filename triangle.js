@@ -9,19 +9,31 @@ sliders.forEach((slider) => {
     }
 });
 
+let button = document.querySelector('#button');
+button.addEventListener('click', () => {
+    changeSize();
+})
+
 function changeSize() {
     let root = document.querySelector(':root');
-    let a = Number(getComputedStyle(root).getPropertyValue('--a').replace('vmin', ''));
-    let b = Number(getComputedStyle(root).getPropertyValue('--b').replace('vmin', ''));
-    let c = Number(getComputedStyle(root).getPropertyValue('--c').replace('vmin', ''));
+    let a = Number(document.getElementById('a').value);
+    let b = Number(document.getElementById('b').value);
+    let c = Number(document.getElementById('c').value);
+    let h = Number(document.getElementById('h').value);
 
     let variables = [a, b, c];
     a = Math.max(...variables);
     c = Math.min(...variables);
     b =  variables.reduce((a, b) => a+b) - a - c;
+
+    if (!(a < b + c)) {
+        alert("Triangle rule is not satisfied. Nothing will be redrawn.");
+        return;
+    }
     root.style.setProperty('--a', `${a}vmin`);
     root.style.setProperty('--b', `${b}vmin`);
     root.style.setProperty('--c', `${c}vmin`);
+    root.style.setProperty('--h', `${h}vmin`)
 
 
     let right = (a**2 + b**2 - c**2) / 2 / a;
