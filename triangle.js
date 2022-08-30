@@ -27,7 +27,7 @@ function changeSize() {
     b =  variables.reduce((a, b) => a+b) - a - c;
 
     if (!(a < b + c)) {
-        alert("Triangle rule is not satisfied. Nothing will be redrawn.");
+        alert("Triangle rule should satisfied.\nEvery value should be 1 <= x <= 60");
         return;
     }
     root.style.setProperty('--a', `${a}vmin`);
