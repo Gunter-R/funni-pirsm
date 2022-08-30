@@ -47,9 +47,6 @@ body {
     height: 100px;
 }
 
-label {
-    display: inline-block;
-}
 
 .scene {
     margin: calc(var(--side)/4) 0 0;
