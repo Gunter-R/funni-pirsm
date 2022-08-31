@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
-  <script src="triangle.js" defer></script>
+  <script defer src="triangle.js"></script>
   <link href="triangle.css" rel="stylesheet">
 </head>
 <body>
@@ -17,16 +17,16 @@
   </div>
 </div>
 <div class="slider-container">
-  <div><label for="X">X:</label><input type="range" min="0" max="360" value="0" class="slider" id="X"></div>
-  <div><label for="Y">Y:</label><input type="range" min="0" max="360" value="0" class="slider" id="Y"></div>
-  <div><label for="Z">Z:</label><input type="range" min="0" max="360" value="0" class="slider" id="Z"></div>
+  <div><label for="X">X:</label><input class="slider" id="X" max="360" min="0" type="range" value="0"></div>
+  <div><label for="Y">Y:</label><input class="slider" id="Y" max="360" min="0" type="range" value="0"></div>
+  <div><label for="Z">Z:</label><input class="slider" id="Z" max="360" min="0" type="range" value="0"></div>
 </div>
-<form>
-  <div><label for="a">a:</label><input type="number" min="1" max="60" value="20" id="a" required></div>
-  <div><label for="b">b:</label><input type="number" min="1" max="60" value="20" id="b" required></div>
-  <div><label for="c">c:</label><input type="number" min="1" max="60" value="20" id="c" required></div>
-  <div><label for="h">h:</label><input type="number" min="1" max="60" value="30" id="h" required></div>
-  <input type="button" id="button" value="Redraw!">
+<form id="form">
+  <div><label for="a">a:</label><input id="a" max="100" min="1" required type="number" value="20"></div>
+  <div><label for="b">b:</label><input id="b" max="100" min="1" required type="number" value="20"></div>
+  <div><label for="c">c:</label><input id="c" max="100" min="1" required type="number" value="20"></div>
+  <div><label for="h">h:</label><input id="h" max="100" min="1" required type="number" value="30"></div>
+  <input id="button" type="button" value="Redraw!">
 </form>
 </body>
 </html>

@@ -13,7 +13,6 @@
 }
 
 
-
 *, *:before, *:after {
     transform-style: preserve-3d;
 }
@@ -27,9 +26,8 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    justify-content: left;
     align-items: center;
-	transform: translateZ(1000px);
+    transform: translateZ(1000px);
 }
 
 .slider-container {
@@ -38,36 +36,43 @@ body {
     width: 80vw;
     font-size: 2rem;
 }
-.slider-container > *{
+
+.slider-container > * {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 5px;
-}
-.slider {
-    flex: 1;
     height: 100px;
 }
 
+.slider {
+    flex: 1;
+}
+
 form {
-    margin: 5px;
+    margin: 10px;
     position: fixed;
     right: 0;
     display: flex;
     gap: 5px;
     flex-direction: column;
     align-items: center;
-    font-size:2rem;
+    font-size: 2rem;
 }
 
 input {
-    font-size:2rem;
+    font-size: 2rem;
 }
 
 input[type="number"] {
+    appearance: textfield;
     width: 3ch;
 }
 
+input:invalid {
+    border: solid 3px red;
+    background-color: rgba(255, 0, 0, 0.1);
+}
 
 .scene {
     margin: 10vh 0 0;
@@ -79,7 +84,7 @@ input[type="number"] {
 .prism {
     width: 100%;
     height: 100%;
-    transform-origin: calc(var(--a)/2) calc(var(--h)/2) calc(0px - var(--height));
+    transform-origin: calc(var(--a) / 2) calc(var(--h) / 2) calc(0px - var(--height) / 2);
     transition: transform 0.5s;
 }
 
@@ -109,19 +114,23 @@ input[type="number"] {
     width: var(--a);
     transform: rotateY(0deg);
 }
+
 .face:nth-of-type(2) {
     transform-origin: center right;
     width: var(--b);
-    transform: translateX(calc(var(--a) - var(--b))) rotateY(calc(0deg - var(--c-angle))) ;
+    transform: translateX(calc(var(--a) - var(--b))) rotateY(calc(0deg - var(--c-angle)));
 }
+
 .face:nth-of-type(3) {
     width: var(--c);
     transform-origin: center left;
-    transform: rotateY(calc(var(--b-angle))) ;
+    transform: rotateY(calc(var(--b-angle)));
 }
+
 .face:nth-of-type(4) {
     transform: rotateX(90deg) translateZ(calc(var(--height)));
 }
+
 .face:nth-of-type(5) {
     transform: rotateX(90deg) translateZ(calc(calc(var(--height)) - var(--h) - 2px));
 }

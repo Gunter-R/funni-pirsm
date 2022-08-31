@@ -11,15 +11,17 @@ sliders.forEach((slider) => {
 
 let button = document.querySelector('#button');
 button.addEventListener('click', () => {
-    changeSize();
+    if (document.querySelector('form').checkValidity()) {
+        changeSize();
+    }
 })
 
 function changeSize() {
     let root = document.querySelector(':root');
-    let a = Number(document.getElementById('a').value);
-    let b = Number(document.getElementById('b').value);
-    let c = Number(document.getElementById('c').value);
-    let h = Number(document.getElementById('h').value);
+    let a = Number(document.getElementById('a').value)/100*60;
+    let b = Number(document.getElementById('b').value)/100*60;
+    let c = Number(document.getElementById('c').value)/100*60;
+    let h = Number(document.getElementById('h').value)/100*60;
 
     let variables = [a, b, c];
     a = Math.max(...variables);
@@ -27,7 +29,7 @@ function changeSize() {
     b =  variables.reduce((a, b) => a+b) - a - c;
 
     if (!(a < b + c)) {
-        alert("Triangle rule should satisfied.\nEvery value should be 1 <= x <= 60");
+        alert("Triangle rule must be satisfied.");
         return;
     }
     root.style.setProperty('--a', `${a}vmin`);
